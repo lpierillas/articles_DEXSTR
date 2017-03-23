@@ -1,0 +1,82 @@
+<style media="screen" type="text/css">
+
+	p {
+		text-align: justify;
+	}
+
+	h1, h2 {
+		text-transform: uppercase;
+	}
+
+	.strong {
+		font-weight : bold;
+	}
+
+</style>
+
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+
+	<body>
+		<h1>Improving our Git workflow</h1>
+
+
+		<p>
+			Our team have been using Git (in combination with Bitbucket) from the beginning of the project but no real workflow was explicitly defined. We were using Git mainly for version control, facing the occasional merge problems that happen when you don't really pay attention to what you're doing with your branches.
+		</p>
+
+		<p>
+			After some particularly painful merges we decided to see what we could do to improve our workflow and use Git in a more collaborative way. The things that seemed the most important for us to improve were:
+			<ul>
+				<li>the way we were handling branches for the development of new functionnalities</li>
+				<li>having a clear Git history (for exemple for when we needed to cherry pick from one version of the application to another)</li>
+				<li>use more of the functionnalities offered by Git and Bitbucket to improve our team efficiency and productivity</li>
+			</ul>
+		</p>
+
+		<h2>Handling branches</h2>
+
+		<p>
+			We create a branch for each separate new functionnality. It allows us to test the functionnality by building the branch inside a docker container and perform basic tests before merging the branch and mark the user story as ready to be tested by our product owner.
+		</p>
+
+		</p>
+			To manage this branches we defined a set of rules to reduce merge problems :
+			<ul>
+				<li><span class="strong">force ourselves to update the branch with the changes from master as often as possible</span>: in my opinion, that is the most important rule every team should follow to avoid merge conflicts nightmares after letting the branch diverge for too long</li>
+				<li>use <a href="https://git-scm.com/docs/git-rebase">rebase</a> to avoid polluting history with unecessary merge commits</li>
+				<li><a href="https://git-scm.com/book/fr/v1/Utilitaires-Git-Réécrire-l-historique">squash</a> the commits made on the branch before merging : that way only one commit is merged onto master. The history is cleaner and cherry picking commit is made easier.</li>
+			</ul>
+		</p>
+
+
+		<h2>Pull requests and code reviews</h2>
+
+		<p>
+			Since we had a branch for each functionnality, we decided to use <a href="https://git-scm.com/docs/git-request-pull">pull requests</a> to perform code reviews before merging branches.
+		</p>
+
+		<p>
+			<a href="https://confluence.atlassian.com/bitbucket/work-with-pull-requests-223220593.html">Bitbucket pull request mechanism</a> allows us to notify the developers team for each new pull request and add comments on the code of the branch. Each pull request have to be approved by another member of the team before the code can be merged onto master.
+		</p>
+
+		<p>
+			Performing code reviews helped us improve the quality of our code and our team efficiency by allowing us to detect some mistakes earlier in our process and forcing us to respect the code standards defined by the team.
+		</p>
+
+		<h2>SUMMARY</h2>
+
+		<p>
+			Setting up those rules helped improve our global development workflow by unifying the way Git and branches were used by the team, cleaning our history and forcing us to pay more attention to the quality of the code merged into master. In my opinion, setting up some sort of convention on version control to be followed by the team is important to avoid wasting time on too many conflicts and improve productivity.
+		</p>
+
+	</body>
+<html>
+
+
+
+
+
+
